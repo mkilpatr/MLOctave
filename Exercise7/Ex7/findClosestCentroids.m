@@ -22,7 +22,16 @@ idx = zeros(size(X,1), 1);
 %
 
 
-
+for i = 1:length(X)
+    cen = 999999;
+    for k = 1:K
+        diff = (X(i,:)' - centroids(k, :)');
+        if (cen > diff'*diff)
+            cen = diff'*diff;
+            idx(i) = k;
+        end
+    end
+end
 
 
 

@@ -27,10 +27,17 @@ centroids = zeros(K, n);
 %
 
 
-
-
-
-
+for i = 1:K
+    mean_ = zeros(n, 1);
+    norm = 0;
+    for j = 1:m
+        if(i == idx(j))
+            mean_ += X(j,:)';
+            norm += 1;
+        end
+    end
+    centroids(i,:) = (mean_/norm)';
+end
 
 
 % =============================================================
